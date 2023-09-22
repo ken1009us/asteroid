@@ -1,10 +1,12 @@
 package com.asteroids;
 
 import javafx.geometry.Point2D;
+import javafx.scene.control.Control;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Shape;
 
-public abstract class Character {
+public abstract class Character extends Control {
     private Polygon character;
     private Point2D movement;
     private boolean alive;
@@ -54,8 +56,8 @@ public abstract class Character {
 
     public void accelerate() {
         double angleInRadians = Math.toRadians(this.character.getRotate());
-        double changeX = Math.cos(angleInRadians) * 0.05;
-        double changeY = Math.sin(angleInRadians) * 0.05;
+        double changeX = Math.cos(angleInRadians) * 0.03;
+        double changeY = Math.sin(angleInRadians) * 0.03;
 
         this.movement = this.movement.add(changeX, changeY);
     }
@@ -79,6 +81,10 @@ public abstract class Character {
 
     public void setAlive(boolean alive) {
         this.alive = alive;
+    }
+
+    public void setFill(Color color) {
+        this.character.setFill(color);
     }
 
 }
