@@ -30,9 +30,46 @@ public abstract class Character {
 
     }
 
+//    public void move() {
+//        this.character.setTranslateX(this.character.getTranslateX() + this.movement.getX());
+//        this.character.setTranslateY(this.character.getTranslateY() + this.movement.getY());
+//
+//        if (this.character.getTranslateX() < 0) {
+//            this.character.setTranslateX(this.character.getTranslateX() + AsteroidsApplication.WIDTH);
+//        }
+//
+//        if (this.character.getTranslateX() > AsteroidsApplication.WIDTH) {
+//            this.character.setTranslateX(this.character.getTranslateX() % AsteroidsApplication.WIDTH);
+//        }
+//
+//        if (this.character.getTranslateY() < 0) {
+//            this.character.setTranslateY(this.character.getTranslateY() + AsteroidsApplication.HEIGHT);
+//        }
+//
+//        if (this.character.getTranslateY() > AsteroidsApplication.HEIGHT) {
+//            this.character.setTranslateY(this.character.getTranslateY() % AsteroidsApplication.HEIGHT);
+//        }
+//
+//    }
+
     public void move() {
-        this.character.setTranslateX(this.character.getTranslateX() + this.movement.getX());
-        this.character.setTranslateY(this.character.getTranslateY() + this.movement.getY());
+        double newX = this.character.getTranslateX() + this.movement.getX();
+        double newY = this.character.getTranslateY() + this.movement.getY();
+
+        if (newX < 0) {
+            newX += AsteroidsApplication.WIDTH;
+        } else if (newX > AsteroidsApplication.WIDTH) {
+            newX %= AsteroidsApplication.WIDTH;
+        }
+
+        if (newY < 0) {
+            newY += AsteroidsApplication.HEIGHT;
+        } else if (newY > AsteroidsApplication.HEIGHT) {
+            newY %= AsteroidsApplication.HEIGHT;
+        }
+
+        this.character.setTranslateX(newX);
+        this.character.setTranslateY(newY);
     }
 
     public void accelerate() {
