@@ -1,5 +1,6 @@
 package com.asteroids;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 
 import java.util.Random;
@@ -13,6 +14,7 @@ public class Asteroid extends Character {
         Random rand = new Random();
 
         super.getCharacter().setRotate(rand.nextInt(360));
+        super.setFill((Color.CORAL));
 
         int accelerationAmount = 1 + rand.nextInt(10);
         for (int i = 0; i < accelerationAmount; i++) {
