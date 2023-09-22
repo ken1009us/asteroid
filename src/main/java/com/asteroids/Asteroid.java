@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Asteroid extends Character {
     private double rotationalMovement;
-    private boolean alive;
+
     public Asteroid(int x, int y) {
         super(new PolygonFactory().createPolygon(), x, y);
 
@@ -19,16 +19,7 @@ public class Asteroid extends Character {
             accelerate();
         }
 
-        this.alive = true;
         this.rotationalMovement = 0.5 - rand.nextDouble();
-    }
-
-    public boolean isAlive() {
-        return this.alive;
-    }
-
-    public void setAlive(boolean alive) {
-        this.alive = alive;
     }
 
     @Override
