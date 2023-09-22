@@ -35,11 +35,9 @@ public abstract class Character {
     }
 
     public void accelerate() {
-        double changeX = Math.cos(Math.toRadians(this.character.getRotate()));
-        double changeY = Math.sin(Math.toRadians(this.character.getRotate()));
-
-        changeX *= 0.05;
-        changeY *= 0.05;
+        double angleInRadians = Math.toRadians(this.character.getRotate());
+        double changeX = Math.cos(angleInRadians) * 0.05;
+        double changeY = Math.sin(angleInRadians) * 0.05;
 
         this.movement = this.movement.add(changeX, changeY);
     }
